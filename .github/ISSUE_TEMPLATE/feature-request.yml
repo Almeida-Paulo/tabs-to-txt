@@ -1,0 +1,24 @@
+name: Feature request
+description: Tell us how Tabs to txt could improve your workflow.
+body:
+  - type: markdown
+    attributes:
+      value: This suggestion will be public. Use example URLs in your description.
+  - type: textarea
+    id: context
+    attributes:
+      label: What are you trying to do?
+      description: Describe how you currently save or reopen tabs.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What change would help?
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and operating system
+      placeholder: Edge on Windows

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Import TXT | Tabs to txt</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="import.js" defer></script>
+  </head>
+  <body class="import-page">
+    <main>
+      <header class="heading">
+        <img src="icons/icon-48.png" width="32" height="32" alt="">
+        <h1>Import TXT</h1>
+      </header>
+      <p>Open the links from a file in new tabs in this window.</p>
+      <form id="import-form">
+        <label for="txt-file">TXT file</label>
+        <input id="txt-file" type="file" accept=".txt,text/plain" aria-describedby="txt-hint" required>
+        <p id="txt-hint" class="hint">Use a UTF-8 file with one HTTP or HTTPS link per line.</p>
+        <button id="open-tabs" type="submit" disabled>Open tabs</button>
+      </form>
+      <p id="status" role="status"></p>
+      <footer class="footer">
+        <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>
+        <a href="support.html" target="_blank" rel="noopener">Support</a>
+      </footer>
+    </main>
+  </body>
+</html>

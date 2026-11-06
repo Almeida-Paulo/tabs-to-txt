@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light dark;
+  font: 14px/1.45 system-ui, sans-serif;
+  color: CanvasText;
+  background: Canvas;
+}
+
+body {
+  margin: 0;
+}
+
+.popup {
+  width: 300px;
+}
+
+main {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.import-page main {
+  max-width: 460px;
+  margin: 5vh auto;
+}
+
+.document-page main {
+  max-width: 660px;
+  margin: 5vh auto;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+form:not([hidden]) {
+  display: grid;
+  gap: 6px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="file"],
+button {
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+input[type="text"],
+input[type="file"] {
+  min-width: 0;
+  border: 1px solid light-dark(#8b95a5, #747e90);
+  color: FieldText;
+  background: Field;
+}
+
+button {
+  margin-top: 4px;
+  border: 0;
+  color: white;
+  background: #1758bc;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #104799;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.secondary {
+  border: 1px solid #1758bc;
+  color: light-dark(#1758bc, #b9d4ff);
+  background: transparent;
+}
+
+.secondary:hover:not(:disabled) {
+  background: light-dark(#edf4ff, #172a47);
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid CanvasText;
+  outline-offset: 2px;
+}
+
+.hint {
+  color: light-dark(#4b5563, #bfc6d0);
+  font-size: 12px;
+}
+
+#import-status:empty {
+  display: none;
+}
+
+summary {
+  cursor: pointer;
+}
+
+#tab-options {
+  max-height: 144px;
+  overflow: auto;
+}
+
+#tab-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 0;
+  font-weight: 400;
+}
+
+#tab-options span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.footer a,
+.document-page a {
+  color: light-dark(#1758bc, #b9d4ff);
+}
+
+.document-page section {
+  display: grid;
+  gap: 8px;
+}
+
+.document-page h2 {
+  margin: 8px 0 0;
+  font-size: 16px;
+}

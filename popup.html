@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabs to txt</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body class="popup">
+    <main>
+      <header class="heading">
+        <img src="icons/icon-48.png" width="32" height="32" alt="">
+        <h1>Tabs to txt</h1>
+      </header>
+      <p id="status" role="status">Reading the tab selection…</p>
+      <details id="tab-picker" hidden>
+        <summary>Choose tabs in this window</summary>
+        <div id="tab-options"></div>
+      </details>
+      <form id="export-form" hidden>
+        <label for="file-name">File name</label>
+        <input id="file-name" type="text" value="selected-tabs" maxlength="240"
+          autocomplete="off" spellcheck="false" aria-describedby="file-name-hint" required>
+        <p id="file-name-hint" class="hint">The .txt extension is added automatically.</p>
+        <button type="submit">Save TXT</button>
+      </form>
+      <a id="download" download hidden></a>
+      <button id="import-button" class="secondary" type="button">Import TXT</button>
+      <p id="import-status" role="status"></p>
+      <footer class="footer">
+        <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>
+        <a href="support.html" target="_blank" rel="noopener">Support</a>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+name: Bug report
+description: Show how to reproduce an issue in Tabs to txt.
+body:
+  - type: markdown
+    attributes:
+      value: This issue will be public. Use example URLs and send privacy questions to contato.tabstotxt@midnorth.com.br.
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, operating system, and extension version
+      placeholder: Edge on Windows, extension 2.0.1
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
