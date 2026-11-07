@@ -1,20 +1,20 @@
 name: Feature request
-description: Tell us how Tabs to txt could improve your workflow.
+description: Propose an improvement to Tabs to txt.
 body:
   - type: markdown
     attributes:
-      value: This suggestion will be public. Use example URLs in your description.
+      value: Feature requests are public. Examples should contain non-sensitive URLs.
   - type: textarea
     id: context
     attributes:
-      label: What are you trying to do?
-      description: Describe how you currently save or reopen tabs.
+      label: Use case
+      description: Current tab management workflow and the problem to address.
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: What change would help?
+      label: Proposed improvement
     validations:
       required: true
   - type: input

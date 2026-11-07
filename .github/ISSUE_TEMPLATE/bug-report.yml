@@ -1,9 +1,9 @@
 name: Bug report
-description: Show how to reproduce an issue in Tabs to txt.
+description: Report a reproducible issue in Tabs to txt.
 body:
   - type: markdown
     attributes:
-      value: This issue will be public. Use example URLs and send privacy questions to contato.tabstotxt@midnorth.com.br.
+      value: Reports are public. Examples should contain non-sensitive URLs. Privacy inquiries can be sent to contato.tabstotxt@midnorth.com.br.
   - type: input
     id: environment
     attributes:
@@ -20,6 +20,6 @@ body:
   - type: textarea
     id: result
     attributes:
-      label: What happened, and what did you expect?
+      label: Actual and expected behavior
     validations:
       required: true

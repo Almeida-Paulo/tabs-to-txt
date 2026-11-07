@@ -40,11 +40,11 @@ fileInput.addEventListener("change", async () => {
     const { urls, skipped } = readLinks(await file.text());
     pendingUrls = urls;
     statusMessage.textContent = urls.length > 0
-      ? (urls.length === 1 ? "1 link ready to open." : urls.length + " links ready to open.")
-      : "The file has no valid HTTP or HTTPS links.";
-    if (skipped > 0) statusMessage.textContent += " Skipped lines: " + skipped + ".";
+      ? (urls.length === 1 ? "1 URL ready to open." : urls.length + " URLs ready to open.")
+      : "No valid HTTP or HTTPS URLs found.";
+    if (skipped > 0) statusMessage.textContent += " Skipped entries (" + skipped + ").";
   } catch {
-    statusMessage.textContent = "Could not read the file. Select the TXT file again.";
+    statusMessage.textContent = "Unable to read the TXT file. Select the file again.";
     fileInput.value = "";
   } finally {
     fileInput.disabled = false;
@@ -62,7 +62,7 @@ importForm.addEventListener("submit", async (event) => {
 
   try {
     const importTab = await extensionApi.tabs.getCurrent();
-    if (!importTab) throw new Error("The import page is not open in a tab.");
+    if (!importTab) throw new Error("Import page has no associated browser tab.");
 
     let index = importTab.index + 1;
     let opened = 0;
@@ -79,14 +79,14 @@ importForm.addEventListener("submit", async (event) => {
     }
 
     pendingUrls = failed;
-    statusMessage.textContent = opened === 1 ? "Opened 1 tab." : "Opened " + opened + " tabs.";
+    statusMessage.textContent = opened === 1 ? "1 tab opened." : opened + " tabs opened.";
     if (failed.length > 0) {
-      statusMessage.textContent += " Links that could not be opened: " + failed.length + ". Click Open tabs to try those links again.";
+      statusMessage.textContent += " Unopened URLs (" + failed.length + "). Use Open tabs to retry.";
     } else {
       fileInput.value = "";
     }
   } catch {
-    statusMessage.textContent = "Could not find this tab's window. Reopen the import page from the extension icon.";
+    statusMessage.textContent = "Browser window unavailable. Reopen Import TXT from the extension.";
   } finally {
     fileInput.disabled = false;
     openButton.disabled = pendingUrls.length === 0;

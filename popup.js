@@ -23,7 +23,7 @@ exportForm.addEventListener("submit", (event) => {
 
   if (!name || /^\.txt$/i.test(name) || /[<>:"/\\|?*\x00-\x1f]/.test(name)
     || name.endsWith(".") || reservedName.test(firstPart)) {
-    fileNameInput.setCustomValidity("Enter a valid Windows file name.");
+    fileNameInput.setCustomValidity("Invalid file name. Use a name supported by Windows.");
     fileNameInput.reportValidity();
     return;
   }
@@ -38,7 +38,7 @@ importButton.addEventListener("click", async () => {
   try {
     await extensionApi.tabs.create({ url: extensionApi.runtime.getURL("import.html") });
   } catch {
-    importStatus.textContent = "Could not open the import page.";
+    importStatus.textContent = "Unable to open the import page.";
   } finally {
     importButton.disabled = false;
   }
@@ -55,7 +55,7 @@ function updateSelection() {
   exportForm.hidden = urls.length === 0;
 
   if (urls.length === 0) {
-    statusMessage.textContent = "Choose at least one tab with an available URL.";
+    statusMessage.textContent = "No exportable tabs selected.";
     return;
   }
 
@@ -66,11 +66,11 @@ function updateSelection() {
 
   const missingCount = checkedTabs.length - urls.length;
   statusMessage.textContent = urls.length === 1
-    ? "1 link ready to export."
-    : `${urls.length} links ready to export.`;
+    ? "1 URL selected."
+    : `${urls.length} URLs selected.`;
 
   if (missingCount > 0) {
-    statusMessage.textContent += ` Tabs without an available URL: ${missingCount}.`;
+    statusMessage.textContent += ` Unavailable URLs (${missingCount}).`;
   }
 }
 
@@ -88,7 +88,7 @@ async function loadTabs() {
     checkbox.value = tab.url || tab.pendingUrl || "";
     checkbox.checked = Boolean(hasHighlightedTabs ? tab.highlighted : tab.selected || tab.active);
     checkbox.disabled = !checkbox.value;
-    title.textContent = tab.title || checkbox.value || "Tab without an available URL";
+    title.textContent = tab.title || checkbox.value || "URL unavailable";
     label.append(checkbox, title);
     tabOptions.append(label);
   }
@@ -98,5 +98,5 @@ async function loadTabs() {
 }
 
 loadTabs().catch(() => {
-  statusMessage.textContent = "Could not prepare the TXT file. Close and reopen the extension to try again.";
+  statusMessage.textContent = "Unable to load tab URLs. Reopen the extension to retry.";
 });

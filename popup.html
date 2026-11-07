@@ -13,9 +13,9 @@
         <img src="icons/icon-48.png" width="32" height="32" alt="">
         <h1>Tabs to txt</h1>
       </header>
-      <p id="status" role="status">Reading the tab selection…</p>
+      <p id="status" role="status">Loading tabs…</p>
       <details id="tab-picker" hidden>
-        <summary>Choose tabs in this window</summary>
+        <summary>Tab selection</summary>
         <div id="tab-options"></div>
       </details>
       <form id="export-form" hidden>
@@ -23,7 +23,7 @@
         <input id="file-name" type="text" value="selected-tabs" maxlength="240"
           autocomplete="off" spellcheck="false" aria-describedby="file-name-hint" required>
         <p id="file-name-hint" class="hint">The .txt extension is added automatically.</p>
-        <button type="submit">Save TXT</button>
+        <button type="submit">Export TXT</button>
       </form>
       <a id="download" download hidden></a>
       <button id="import-button" class="secondary" type="button">Import TXT</button>

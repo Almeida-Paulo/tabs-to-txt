@@ -1,33 +1,65 @@
 # Tabs to txt
 
-Save selected tabs to a TXT file and reopen the links whenever you need them. The file contains one URL per line in UTF-8, in the order the tabs appeared in your browser.
+Tabs to txt is a browser extension for exporting selected tab URLs to a portable TXT file and restoring saved URLs as browser tabs.
+
+Files use UTF-8 with one URL per line. Tab information and file contents are processed locally.
 
 ![Tabs to txt with three tabs selected for export](store/images/01-export-tabs.png)
 
-## How to use
+## Features
 
-1. Select tabs in the browser's tab bar or use **Choose tabs in this window** in the popup.
-2. Enter a **File name** and click **Save TXT**.
-3. To reopen the links, click **Import TXT**, select your file, then click **Open tabs**.
+- Export selected tabs with a custom file name.
+- Preserve tab order and duplicate URLs.
+- Restore saved HTTP and HTTPS links in background tabs in the same window.
+- Edit saved lists with any text editor.
 
-HTTP and HTTPS links open in background tabs in the same window. The extension ignores blank lines and reports how many other lines it skipped. Try it with the [sample TXT file](store/sample-tabs.txt).
+## Export tabs
 
-## Local installation
+1. Select tabs in the browser's tab bar, or expand **Tab selection** in the extension popup.
+2. Enter a **File name**.
+3. Select **Export TXT**.
 
-- **Chrome, Edge, and Brave.** Open `chrome://extensions`, `edge://extensions`, or `brave://extensions`. Turn on **Developer mode**, click **Load unpacked**, and select the folder containing `manifest.json`.
-- **Firefox.** Open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on**, and select `manifest.json`. The installation lasts until you restart Firefox. [Mozilla documentation](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
-- **Safari on macOS.** Generate the Safari ZIP with `scripts/package.py` or download it from the project's Releases page when available. On supported versions, use **Safari → Settings → Developer → Add Temporary Extension**. Grant access to the websites whose URLs you want to export. [Temporary installation](https://developer.apple.com/documentation/safariservices/running-your-safari-web-extension) · [Website permissions](https://developer.apple.com/documentation/safariservices/managing-safari-web-extension-permissions)
+The file contains the selected URLs in tab order. The `.txt` extension is added automatically.
+
+## Import tabs
+
+1. Select **Import TXT** in the popup.
+2. Select a saved TXT file.
+3. Confirm the number of valid URLs and select **Open tabs**.
+
+Valid URLs open in background tabs in the same window. Blank lines are ignored, and invalid or unsupported entries are reported. If a tab cannot be opened, a subsequent attempt retries only the remaining URLs.
+
+![Tabs to txt ready to reopen a saved list](store/images/02-import-tabs.png)
+
+## File format
+
+TXT files contain one URL per line in UTF-8. Import supports HTTP and HTTPS addresses.
+
+```text
+https://example.com/
+https://example.org/
+https://example.net/
+```
+
+A [sample TXT file](store/sample-tabs.txt) is included.
+
+## Manual installation
+
+Download the source archive through **Code → Download ZIP** and extract its contents.
+
+- **Chrome, Edge, and Brave.** Open `chrome://extensions`, `edge://extensions`, or `brave://extensions`. Turn on **Developer mode**, click **Load unpacked**, and select the extracted folder containing `manifest.json`.
+- **Firefox.** Open `about:debugging#/runtime/this-firefox`, select **Load Temporary Add-on**, and select `manifest.json`. The temporary installation ends when Firefox restarts.
+
+Safari requires a separate extension package and website access permissions. Compatibility with Safari on macOS is under validation.
 
 ## Privacy
 
-The extension processes URLs, tab titles, and files on your device. It requires no account and includes no telemetry. See the [Privacy Policy](privacy.html) and [support page](support.html).
+Tab URLs, titles, and TXT files are processed on the device. The extension requires no account and includes no advertising or telemetry. Imported URLs are opened through the browser's normal navigation process.
 
-## Feedback and bug reports
+[Privacy Policy](https://almeida-paulo.github.io/tabs-to-txt/privacy.html) · [Product support](https://almeida-paulo.github.io/tabs-to-txt/support.html)
 
-Choose **Feature request** or **Bug report** when opening an issue. Use example URLs in public reports. For privacy questions, email [contato.tabstotxt@midnorth.com.br](mailto:contato.tabstotxt@midnorth.com.br). [Open an issue on GitHub](https://github.com/Almeida-Paulo/tabs-to-txt/issues/new/choose)
+## Feedback and support
 
-## Development and publishing
+Feature requests and bug reports are available through [GitHub Issues](https://github.com/Almeida-Paulo/tabs-to-txt/issues/new/choose).
 
-The extension uses Manifest V3 and plain JavaScript, HTML, and CSS. You can load the source folder directly. To build the distribution ZIPs, run `python scripts/package.py` from the extension root with Python 3.8 or later. The packager uses only the Python standard library and writes ZIPs and SHA-256 checksums to `packages/`.
-
-See the [publishing guide](store/PUBLISHING.md) to set up the repository, host the policy, and submit the packages to the stores.
+Technical support and privacy inquiries can be sent to [contato.tabstotxt@midnorth.com.br](mailto:contato.tabstotxt@midnorth.com.br).

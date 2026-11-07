@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Tabs to txt",
   "version": "2.0.1",
-  "description": "Save selected tabs to a TXT file and reopen its links in the current window.",
+  "description": "Export selected tab URLs to a TXT file and restore saved links as browser tabs.",
   "permissions": ["tabs"],
   "icons": {
     "16": "icons/icon-16.png",
