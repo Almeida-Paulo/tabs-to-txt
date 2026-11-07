@@ -63,3 +63,7 @@ Tab URLs, titles, and TXT files are processed on the device. The extension requi
 Feature requests and bug reports are available through [GitHub Issues](https://github.com/Almeida-Paulo/tabs-to-txt/issues/new/choose).
 
 Technical support and privacy inquiries can be sent to [contato.tabstotxt@midnorth.com.br](mailto:contato.tabstotxt@midnorth.com.br).
+
+## Acknowledgments
+
+Codex was used to assist in the development of this application.
